@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+	    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500&family=Dosis:wght@400;500&family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="index.css" />
+
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <nav class="nav">
+      <i class="uil uil-bars navOpenBtn"></i>
+      <a href="#" class="logo">
+        <img src="image/logo png.png" alt="AushadhiVed" height="80px" />
+      </a>
+
+      <ul class="nav-links">
+        <i class="uil uil-times navCloseBtn"></i>
+        <li><a href="#Homepage">Home</a></li>
+        <li><a href="#why-medical-plants">Info</a></li>
+        <li><a href="#Products">Products</a></li>
+        <li><a href="#contactUs">Contact</a></li>
+      </ul>
+
+      <i class="uil uil-search search-icon" id="searchIcon"></i>
+      <div class="search-box">
+        <i class="uil uil-search search-icon"></i>
+        <input type="text" placeholder="Search here..." />
+      </div>
+	  
+    </nav>
+
+    <section class="Homepage" id="Homepage">
+      <p class="heading1">Welcome to the</p>
+      <p class="heading2">Aushadhi Ved</p>
+
+      <p class="description">Identify medical plants with image recognition</p>
+
+  
+	  <form id="image-form" enctype="multipart/form-data">
+        <input type="file" name="image" id="image-input">
+        <input type="submit" value="Classify" id="classify-button">
+    </form>
+    <p  class="description" id="response"></p>
+
+    <script>
+        $(document).ready(function() {
+            $("#image-form").submit(function(event) {
+                event.preventDefault(); // Prevent the default form submission
+
+                var formData = new FormData(this);
+
+                $.ajax({
+                    type: "POST",
+                    url: "http://127.0.0.1:5000/classify",
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                          var additionalInfo = response.additional_info;
+    var classification = response.classification;
+
+    // Create HTML content with the information
+    var htmlContent = "<p><strong>Classification:</strong> " + classification + "</p>";
+    htmlContent += "<p><strong>Additional Info:</strong> " + additionalInfo + "</p>";
+
+    // Update the "response" div with the formatted content
+    $("#response").html(htmlContent);
+                    }
+                });
+            });
+        });
+    </script>
+    </section>
+
+    <section class="medical-plants" id="why-medical-plants">
+      <h1 class="title">Why Medicinal Plants?</h1>
+      <h3 class="desc">Discover the benefits of using natural remedies</h3>
+
+      <section class="container">
+        <div class="card">
+          <div class="row">
+            <div class="img_container">
+              <img src="./image/holistic.jpg" alt="" />
+            </div>
+            <div class="details_container col-6">
+              <h1 class="name">Holistic Healing</h1>
+              <p class="montserrat">Traditional Konwledge</p>
+              <p class="description">
+                Medicinal plants have been used for centuries in various
+                cultures to treat a wide range of ailments.
+              </p>
+
+              <div class="price_container">
+                <p class="current_price">Natural</p>
+                <p class="old_price">Traditional</p>
+              </div>
+              
+              <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3887317/">
+                <button class="btn">
+                  <img src="./images/icon-cart.svg" alt="" />
+                  Medical Expert
+                </button>
+              </a>
+              
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="row">
+            <div class="img_container col">
+              <img src="./image/holistic.jpg" alt="" />
+            </div>
+            <div class="details_container col">
+              <h1 class="name">No Side Effects</h1>
+              <p class="montserrat">Environment Friendly</p>
+              <p class="description">
+                Unlike synthetic drugs, natural remedies derived from plants
+                generally have minimal side effects.
+              </p>
+
+              <div class="price_container">
+                <p class="current_price">Remedy</p>
+                <p class="old_price">Natural</p>
+              </div>
+               <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3887317/">
+                <button class="btn" >
+                  <img src="./images/icon-cart.svg" alt="" />
+                  Herbalist
+                </button>
+               </a>
+              
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="common-mediacal">
+      <h1 class="title2">Common Medicinal Plants</h1>
+      <section class="container2">
+        <div class="wrapper">
+          <div class="img-area">
+            <div class="inner-area">
+              <img
+                src="https://images.unsplash.com/photo-1659817674953-f971fe440aa6?auto=format&fit=crop&q=80&w=387&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="icon arrow"><i class="fas fa-arrow-left"></i></div>
+          <div class="icon dots"><i class="fas fa-ellipsis-v"></i></div>
+          <div class="name">Ginkgo Biloba</div>
+          <div class="about">Memory Enhancement</div>
+          <div class="desc2">
+            Fan shaped leaves and are commonly included in supplements and taken
+            by mouth for memory problems.One of the oldest living trees in the
+            world
+          </div>
+
+          <div class="buttons">
+            <a href="https://en.wikipedia.org/wiki/Ginkgo_biloba#Uses">
+              <button>Uses</button>
+            </a>
+            
+             <a href="https://en.wikipedia.org/wiki/Ginkgo_biloba">
+              <button>Precautions</button>
+             </a>
+            
+          </div>
+        </div>
+
+        <div class="wrapper">
+          <div class="img-area">
+            <div class="inner-area">
+              <img
+                src="https://plus.unsplash.com/premium_photo-1664527008748-2c86eee0d017?auto=format&fit=crop&q=60&w=1000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8RWNoaW5hY2VhfGVufDB8fDB8fHww"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="icon arrow"><i class="fas fa-arrow-left"></i></div>
+          <div class="icon dots"><i class="fas fa-ellipsis-v"></i></div>
+          <div class="name">Echinacea</div>
+          <div class="about">Immune System Booster</div>
+          <div class="desc2">
+            Echinacea (E. angustifolia, E. purpurea, E. pallida.) are plants
+            related to sunflowers and ragweed. The leaf, flower, and root are
+            used as medicine.
+          </div>
+
+          <div class="buttons">
+            <a href="https://en.wikipedia.org/wiki/Echinacea#Uses">
+              <button>Uses</button>
+            </a>
+            
+            <a href="https://en.wikipedia.org/wiki/Echinacea#General_precaution">
+              <button>Precautions</button>
+            </a>
+            
+          </div>
+        </div>
+
+        <div class="wrapper">
+          <div class="img-area">
+            <div class="inner-area">
+              <img
+                src="https://images.unsplash.com/photo-1695225836726-e01deb866bfe?auto=format&fit=crop&q=80&w=1887&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="icon arrow"><i class="fas fa-arrow-left"></i></div>
+          <div class="icon dots"><i class="fas fa-ellipsis-v"></i></div>
+          <div class="name">Lavender</div>
+          <div class="about">Relaxation, Sleep Aid</div>
+          <div class="desc2">
+            Lavender is an evergreen plant native to the Mediterranean. Lavender
+            contains an oil that seems to have calming effects and might relax
+            certain muscles.
+          </div>
+
+          <div class="buttons">
+            <a href="https://en.wikipedia.org/wiki/Lavandula#Culinary_use">
+              <button>Uses</button>
+            </a>
+            
+            <a href="https://en.wikipedia.org/wiki/Lavandula#Health_precautions">
+              <button>Precautions</button>
+            </a>
+            
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="Products-details" id="Products">
+      <div class="recommended">
+        <h1 class="title3">Recommended Herbal Products</h1>
+        <h3 class="desc3">
+          Explore herbal products related to medicinal plants
+        </h3>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-3 column">
+              <div class="card shadow" style="width: 20rem; height: 30rem">
+                <div class="inner">
+                  <img
+                    src="image/alternative-medicine-herbal-organic-capsule-with-vitamin-e-omega-3-fish-oil-mineral-drug-with-herbs-leaf-natural-supplements-healthy-good-life_39768-7713.avif"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                </div>
+
+                <div class="card-body text-center">
+                  <h5 class="card-title">Ginseng Capsules</h5>
+                  <p class="card-text">$29.99</p>
+                  <a href="pages/ginseng.html" class="btn btn-success price-button"
+                    >Get it now</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 column">
+              <div class="card shadow" style="width: 20rem; height: 30rem">
+                <div class="inner">
+                  <img
+                    src="image/aloe-vera-cosmetic-cream-dark-surface.jpg"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                </div>
+                <div class="card-body text-center">
+                  <h5 class="card-title">Aloevera Gel</h5>
+                  <p class="card-text">$20.99</p>
+                  <a href="pages/aloevera.html" class="btn btn-success price-button"
+                    >Get it now</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 column">
+              <div class="card shadow" style="width: 20rem; height: 30rem">
+                <div class="inner">
+                  <img
+                    src="image/assortment-different-foods-ingredients.jpg"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                </div>
+                <div class="card-body text-center">
+                  <h5 class="card-title">Turmeric Powder</h5>
+                  <p class="card-text">$9.99</p>
+                  <a href="pages/turmeric.html" class="btn btn-success price-button"
+                    >Get it now</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="Contact" id="contactUs">
+      <h1 class="Heading4">Contact Us</h1>
+      <p class="desc4">Have a question or suggestion? Let us know!</p>
+
+      <img src="image/contact vector.svg" alt="" />
+      <form action="#" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <input type="submit" value="Submit" />
+      </form>
+    </section>
+
+    <footer class="fotterpage">
+      <div class="footer-content">
+        <img class="logo" src="image/logo png.png" alt="Company Logo" />
+
+        <div class="main-links">
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#Products">Products</a></li>
+            <li><a href="#why-medical-plants">Info</a></li>
+            <li><a href="#contactUs">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="links">
+          <ul>
+            <li><a href="#">Term & Conditions</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">&copy; 2023 AushadhiVed. All Rights Reserved.</div>
+    </footer>
+  </body>
+</html>

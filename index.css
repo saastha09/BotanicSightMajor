@@ -1,0 +1,822 @@
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500&family=Dosis:wght@400;500&family=Roboto:wght@300;400;500&display=swap");
+
+* {
+  font-family: "Crimson Pro", serif;
+  font-family: "Dosis", sans-serif;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.nav {
+  /* position: fixed; */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  padding: 15px 60px;
+  background: #0a3d2c;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.nav,
+.nav .nav-links {
+  display: flex;
+  align-items: center;
+  font-size: 23px;
+  font-weight: 500;
+  padding-left: 1px;
+  padding-right: 1px;
+}
+.nav {
+  justify-content: space-between;
+}
+a {
+  color: #c2dcc4;
+  text-decoration: none;
+}
+.nav .logo {
+  padding-top: 25px;
+  margin-left: 55px;
+  margin-bottom: 50px;
+  /* padding-bottom: 20px; */
+}
+
+.nav .nav-links {
+  margin-top: 30px;
+  margin-right: 80px;
+  column-gap: 65px;
+  list-style: none;
+  font-family: "Roboto", sans-serif;
+}
+.nav .nav-links a {
+  transition: all 0.2s linear;
+}
+
+.nav.openSearch .nav-links a {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.nav-links a:hover {
+  font-size: 26px;
+  color: #ffffff;
+}
+.nav .search-icon {
+  padding-right: 45px;
+  color: #c2dcc4;
+  font-size: 24px;
+  cursor: pointer;
+}
+.nav .search-icon:hover {
+  font-size: 27px;
+  padding-right: 42px;
+}
+.nav .search-box {
+  position: absolute;
+  right: 75px;
+  top: 78px;
+  height: 42px;
+  max-width: 350px;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s linear;
+}
+.nav.openSearch .search-box {
+  opacity: 1;
+  pointer-events: auto;
+}
+.search-box .search-icon {
+  position: absolute;
+  /* left: 15px; */
+  top: 50%;
+  left: 15px;
+  color: #c2dcc4;
+  transform: translateY(-50%);
+}
+.search-box input {
+  height: 100%;
+  width: 100%;
+  color: #c2dcc4;
+  border: 2px solid #c2dcc4;
+  outline: none;
+  border-radius: 6px;
+  background-color: #276c2e;
+  /* padding: 0 20px 0 45px; */
+  padding-left: 75px;
+  font-size: 18px;
+}
+
+.nav .navOpenBtn,
+.nav .navCloseBtn {
+  display: none;
+}
+
+.Homepage {
+  background-image: url(image/homepage\ bg.jpg);
+  background-repeat: no-repeat;
+  /* background-attachment: initial; */
+  background-size: cover;
+  background-position: center;
+  /* margin-top: 130px; */
+  height: 100%;
+}
+
+.Homepage .heading1 {
+  font-size: 64px;
+  padding-left: 380px;
+  font-family: "Crimson Pro", serif;
+  color: #ffffff;
+  padding-top: 150px;
+  padding-bottom: 0%;
+  margin-bottom: 0%;
+}
+.Homepage .heading2 {
+  font-size: 64px;
+  padding-left: 380px;
+  font-family: "Crimson Pro", serif;
+  color: #ffffff;
+  margin-top: -20px;
+  padding-top: 0%;
+  /* padding-top: 150px; */
+}
+
+.Homepage .description {
+  padding-top: -2px;
+  font-size: 22px;
+  padding-left: 380px;
+  font-family: "Dosis", sans-serif;
+  color: #ffffff;
+}
+
+.Homepage form {
+  padding-left: 380px;
+  padding-bottom: 120px;
+}
+
+/* Hide the default file input */
+
+
+/* Style for the custom file upload label */
+.custom-file-upload {
+  cursor: pointer;
+  background-color: #c2dcc4;
+  border: 4px solid #c2dcc4;
+  border-radius: 5px;
+}
+
+/* Style for the custom file box */
+.file-box {
+  background-color: #c2dcc4;
+  /* padding: 14px; */
+  width: 320px;
+  /* border: 2px solid #c2dcc4; */
+  /* border-radius: 5px; */
+  text-align: center;
+  font-size: 16px;
+  /* margin-top: 1px; */
+}
+
+/* Style for the custom file box on hover */
+.file-box:hover {
+  background-color: #e6ede1;
+}
+
+/* Style for the label text */
+.file-box span {
+  font-family: "Roboto", sans-serif;
+  color: #0a3d2c;
+}
+
+#ImageuploadIcon {
+  font-size: 22px;
+  margin-left: 125px;
+}
+
+/* Style for the button */
+button[type="submit"] {
+  font-family: "Roboto", sans-serif;
+  background-color: #0a3d2c;
+  color: white;
+  padding: 12px 32px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  display: block;
+  margin-left: 0;
+  margin-top: 10px;
+}
+
+/* Style for the button on hover */
+button[type="submit"]:hover {
+  /* margin-top: 0; */
+  background-color: #6fad4a;
+}
+
+.medical-plants {
+  background-image: url(image/medicialplants\ bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* margin-top: 130px; */
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+  padding-bottom: 120px;
+}
+.container .card:hover {
+  transform: scale(1.07);
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+  padding-top: 70px;
+  /* margin-bottom: 1%; */
+  font-size: 64px;
+  font-weight: 700;
+  font-family: "Crimson Pro", serif;
+  color: #0a3d2c;
+}
+.desc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 6%;
+  font-size: 24px;
+  font-family: "Dosis", sans-serif;
+  color: #0a3d2c;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  border-radius: 10px;
+  max-width: 666px;
+  background-color: white;
+  margin: 0 1rem;
+  box-shadow: hsl(212, 21%, 14%);
+}
+
+.img_container {
+  width: 50%;
+}
+
+.img_container img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.details_container {
+  width: 50%;
+  padding: 1rem;
+}
+
+.details_container .name {
+  color: hsl(212, 21%, 14%);
+  padding-right: 2rem;
+  font-size: 26px;
+}
+
+.details_container .description {
+  font-family: "Dosis", sans-serif;
+  font-size: 14px;
+  color: hsl(228, 12%, 48%);
+  line-height: 22px;
+}
+
+.montserrat {
+  font-family: "Dosis", sans-serif;
+  letter-spacing: 3px;
+  font-size: 14px;
+  color: hsl(228, 12%, 48%);
+}
+
+.price_container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.price_container .current_price {
+  color: hsl(158, 36%, 37%);
+}
+
+.price_container .old_price {
+  font-family: "Dosis", sans-serif;
+  /* color: hsl(228, 12%, 48%); */
+  color: hsl(158, 36%, 37%);
+}
+
+.details_container .btn {
+  width: 80%;
+  border: 0;
+  outline: 0;
+  background-color: hsl(158, 36%, 37%);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-family: "Dosis", sans-serif;
+  padding: 1rem 0.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.details_container .btn:hover {
+  background-color: hsl(212, 21%, 14%);
+}
+
+/* responsive */
+@media screen and (max-width: 1160px) {
+  .nav {
+    padding: 15px 100px;
+  }
+  .nav .search-box {
+    right: 150px;
+  }
+}
+@media screen and (max-width: 950px) {
+  .nav {
+    padding: 15px 50px;
+  }
+  .nav .search-box {
+    right: 100px;
+    max-width: 400px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .nav .navOpenBtn,
+  .nav .navCloseBtn {
+    display: block;
+  }
+  .nav {
+    padding: 15px 20px;
+  }
+  .nav .nav-links {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    max-width: 280px;
+    width: 100%;
+    padding-top: 100px;
+    row-gap: 30px;
+    flex-direction: column;
+    background-color: #11101d;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    z-index: 100;
+  }
+  .nav.openNav .nav-links {
+    left: 0;
+  }
+  .nav .navOpenBtn {
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  .nav .navCloseBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  .nav .search-box {
+    top: calc(100% + 10px);
+    max-width: calc(100% - 20px);
+    right: 50%;
+    transform: translateX(50%);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+}
+@media only screen and (max-width: 550px) {
+  .card {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .img_container {
+    width: 100%;
+    height: 40%;
+  }
+
+  .img_container img {
+    content: url("./images/image-product-mobile.jpg");
+  }
+
+  .card {
+    flex-direction: column;
+  }
+
+  .details_container {
+    width: 100%;
+  }
+
+  .details_container .name {
+    padding-right: 0;
+  }
+
+  .img_container img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0px;
+  }
+}
+
+/* common medicinal plants */
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Dosis";
+} */
+/* body{
+    /* display: flex;
+    align-items: center;
+     justify-content: center; */
+/* min-height: 100vh;
+    background: #0A3D2C;  */
+/* } */
+
+.common-mediacal {
+  background-image: url(image/common\ medicinal\ bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+}
+.title2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 70px;
+  margin-bottom: 35px;
+  font-size: 65px;
+  font-family: "Crimson Pro", serif;
+  font-weight: 700;
+  color: #ffffff;
+}
+.container2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1%;
+  margin-bottom: 8%;
+  padding-bottom: 100px;
+}
+
+.wrapper,
+.wrapper .img-area,
+.buttons button {
+  background: #ffffff;
+  box-shadow: -3px -3px 7px grey, 3px 3px 5px #ceced1;
+}
+.wrapper {
+  position: relative;
+  width: 350px;
+  padding: 30px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 25px;
+}
+.wrapper .icon {
+  font-size: 17px;
+  color: #31344b;
+  position: absolute;
+  cursor: pointer;
+  opacity: 0.7;
+  top: 15px;
+  height: 35px;
+  width: 35px;
+  text-align: center;
+  line-height: 35px;
+  border-radius: 50%;
+  font-size: 16px;
+}
+.wrapper .icon i {
+  position: relative;
+  z-index: 9;
+}
+.wrapper .icon.arrow {
+  left: 15px;
+}
+.wrapper .icon.dots {
+  right: 15px;
+}
+.wrapper .img-area {
+  height: 150px;
+  width: 150px;
+  border: solid #eef4f2;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.img-area .inner-area {
+  height: calc(100% - 25px);
+  width: calc(100% - 25px);
+  border-radius: 50%;
+}
+.inner-area img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.wrapper .name {
+  font-size: 23px;
+  font-weight: 700;
+  color: #04150e;
+  margin: 10px 0 5px 0;
+  font-family: "Dosis", sans-serif;
+}
+.wrapper .about {
+  color: #0a3d2c;
+  font-weight: 550;
+  font-size: 18px;
+}
+
+.wrapper:hover {
+  transform: scale(1.08);
+}
+.buttons button:hover:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 50%;
+  background: #ecf0f3;
+  box-shadow: inset -3px -3px 7px #ffffff, inset 3px 3px 5px #ceced1;
+}
+.buttons button:hover:before {
+  z-index: -1;
+  border-radius: 5px;
+}
+
+.wrapper .buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.desc2 {
+  margin: 6% auto;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  color: #0a3d2c;
+  font-weight: 400;
+  font-size: 15px;
+}
+.buttons {
+  margin: 6%;
+}
+.buttons button {
+  position: relative;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 12px 0;
+  color: #0a3d2c;
+  font-size: 17px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 4;
+  padding: 3%;
+}
+.buttons button:first-child {
+  margin-right: 10px;
+}
+.buttons button:last-child {
+  margin-left: 10px;
+}
+
+/* recommended */
+.Products-details {
+  background-image: url(image/recommended\ products\ bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+}
+.recommended {
+  padding-bottom: 200px;
+  padding-top: 0;
+  margin-top: -122px;
+}
+.inner {
+  overflow: hidden;
+}
+.inner img {
+  transition: all 1.5s ease;
+  height: 320px;
+}
+.inner:hover img {
+  transform: scale(1.2);
+}
+
+.column {
+  margin-right: 50px;
+  margin-left: 50px;
+  height: 200px;
+}
+
+.title3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 85px;
+  margin-top: 0;
+  margin-bottom: 4px;
+  font-size: 64px;
+  font-family: "Crimson Pro", serif;
+  font-weight: 700;
+  color: #0a3d2c;
+}
+
+.desc3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5%;
+  font-size: 25px;
+  font-weight: 500;
+  font-family: "Dosis", sans-serif;
+  color: #0a3d2c;
+}
+
+.card .price-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Contact {
+  background-color: #f0f6f2;
+}
+.Contact .Heading4 {
+  /* font-family: "Crimson Pro", serif; */
+  font-family: "Dosis", sans-serif;
+  padding-top: 120px;
+  padding-left: 69%;
+  font-size: 48px;
+  font-weight: 500;
+  color: #0a3d2c;
+}
+.Contact .desc4 {
+  font-family: "Dosis", sans-serif;
+  margin-top: 4px;
+  padding-left: 62%;
+  font-size: 24px;
+  font-weight: 500;
+  color: #0a3d2c;
+}
+.Contact img {
+  height: 550px;
+  width: 500px;
+  margin-top: -80px;
+  margin-left: 10%;
+}
+.Contact form {
+  max-width: 400px;
+  /* margin: 0 auto; */
+  margin-top: -465px;
+  /* padding-left: ; */
+  margin-left: 62%;
+  padding-bottom: 80px;
+  /* background-color: #fff; */
+  /* padding: 20px; */
+  /* border-radius: 5px; */
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+}
+
+.Contact input,
+textarea {
+  background-color: #c2dcc4;
+  border: 1px solid #0a3d2c;
+}
+.Contact label {
+  display: block;
+  margin-bottom: 5px;
+  color: #0a3d2c;
+  font-size: 16px;
+}
+
+.Contact input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  /* border: 1px solid #ccc; */
+  border-radius: 3px;
+  color: #0a3d2c;
+}
+
+.Contact textarea {
+  resize: vertical;
+}
+
+.Contact input[type="submit"] {
+  background-color: #0a3d2c;
+  color: #fff;
+  padding: 10px 20px;
+  margin-left: 40%;
+  margin-top: 3px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.Contact input[type="submit"]:hover {
+  background-color: #276c2e;
+}
+
+footer {
+  /* background-color: #333;
+  color: #fff; */
+  padding: 20px 0;
+  /* height: 150px; */
+}
+.fotterpage {
+  background-image: url(image/fotter\ bg.jpg);
+  background-repeat: no-repeat;
+  /* background-attachment: initial; */
+  background-size: cover;
+  background-position: center;
+  /* margin-top: 130px; */
+  height: 100%;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fotterpage img {
+  width: 140px;
+  margin-left: 140px; /* Adjust the size as needed */
+}
+.main-links {
+  margin-top: 80px;
+  right: 0;
+}
+.main-links ul {
+  list-style: none;
+  padding: 0;
+  /* display: flex; */
+}
+
+.main-links li {
+  margin-top: 5px;
+  color: #c2dcc4;
+}
+.fotterpage .links ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.fotterpage .links li {
+  margin-right: 50px;
+  margin-top: 40px;
+}
+
+.fotterpage .links a {
+  text-decoration: none;
+  color: #c2dcc4;
+}
+
+.fotterpage .copyright {
+  text-align: center;
+  margin-top: 30px;
+  color: #c2dcc4;
+  padding-bottom: 50px;
+}
